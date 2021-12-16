@@ -1,0 +1,71 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+.toolbar {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	.tool-list {
+		display: flex;
+		flex-flow: row nowrap;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		.tool {
+			position: relative;
+			.tool--btn {
+				display: block !important;
+				border: none;
+				height: 30px;
+				width: 30px;
+				padding-left: 9px;
+				padding-right: 9px;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				font-size: 16px;
+				color: #3a3a3a;
+				background: #eaeaea;
+				&:hover {
+					background: #d8d8d8;
+				}
+				cursor: pointer;
+			}
+			
+		}
+	}
+}
+
+.text-area {
+	min-height: 100px;
+	display: block;
+	width: 100%;
+	//height: calc(1.5em + 0.75rem + 2px);
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	//line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+	/*::ng-deep {
+		
+		
+	}*/
+}
+.active {
+	background: #4082d4 !important;
+	color: white !important;
+}
+.selected {
+	background: #949494 !important;
+	//color: white !important;
+}
+

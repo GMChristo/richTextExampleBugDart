@@ -1,0 +1,76 @@
+<div class="toolbar">
+    <ul #toolbar class="tool-list">
+        <li class="tool" *ngFor="let c of actions">
+            <code class="tool--btn" [class.active]="c.active" [class.selected]="c.selected"
+                [title]="c.label" (mousedown)="c.onClick(c, $event)" [attr.data-command]="c.cmd">
+                <i class="fas {{c.icon}}"></i>
+            </code>
+
+        </li>
+        <!--(mousedown)="$event.preventDefault()"-->
+        <!--<li class="tool">
+            <code  class="tool--btn" (mousedown)="openForegroundDrop($event, drop)">
+                <i class="fas fa-fill-drip"></i>
+            </code>
+            <div #drop class="drop-foreground-color" hidden>
+                <div class="color-palette">
+                    <code class="item" style="background-color: green;" (mousedown)="$event.preventDefault()"></code>
+                
+                </div>
+            </div>
+        </li>-->
+        <!--<li class="tool">
+            <code class="tool--btn" data-command='justifyLeft' (mousedown)="$event.preventDefault()"
+                (click)="onBtnClick('justifyLeft')">
+                <i class="fas fa-align-left"></i> 
+            </code>
+        </li>
+        <li class="tool">
+            <button type="button" data-command='justifyCenter' class="tool--btn" (mousedown)="$event.preventDefault()"
+                (click)="onBtnClick('justifyCenter')">
+                <i class=' fas fa-align-center'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="bold" class="tool--btn" (mousedown)="$event.preventDefault()"
+                (click)="onBtnClick('bold')">
+                <i class=' fas fa-bold'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="italic" class="tool--btn" (mousedown)="$event.preventDefault()"
+                (click)="onBtnClick('italic')">
+                <i class=' fas fa-italic'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="underline" class="tool--btn" (mousedown)="$event.preventDefault()"
+                (click)="onBtnClick('underline')">
+                <i class=' fas fa-underline'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="insertOrderedList" class="tool--btn"
+                (mousedown)="$event.preventDefault()" (click)="onBtnClick('insertOrderedList')">
+                <i class=' fas fa-list-ol'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="insertUnorderedList" class="tool--btn"
+                (mousedown)="$event.preventDefault()" (click)="onBtnClick('insertUnorderedList')">
+                <i class=' fas fa-list-ul'></i>
+            </button>
+        </li>
+        <li class="tool">
+            <button type="button" data-command="createlink" class="tool--btn" (mousedown)="$event.preventDefault()"
+                (click)="onBtnClick('createlink')">
+                <i class=' fas fa-link'></i>
+            </button>
+        </li>(mouseout)="updateValueFromCodeView()"-->
+    </ul>
+</div>
+
+<div #board [hidden]="isCodeView" class="text-area" (click)="boardClickHandler($event)" contenteditable tabindex="-1"
+    (keydown)="boardKeydownHandler($event)" (keyup)="boardKeyupHandler($event)"></div>
+<textarea #codeView [hidden]="!isCodeView" class="text-area" (keyup)="updateValueFromCodeView()"
+    style="background: #f7fdff;"></textarea>
